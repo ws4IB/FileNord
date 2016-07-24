@@ -1,0 +1,90 @@
+    1  passwd
+    2  ls -la
+    3  id waldemar
+    4  cd /etc/letsencrypt/
+    5  ls -la
+    6  ls -la csr/
+    7  cd /etc/apache2/
+    8  ls -la 
+    9  view apache2.conf 
+   10  cd sites-available/
+   11  ls -la 
+   12  view default-ssl.conf 
+   13  dpkg -l
+   14  sudo su -
+   15  ls -l
+   16  ls -la
+   17  sudo su -
+   18  ls -la
+   19  cat .viminfo 
+   20  mkdir connection_with_openVPN
+   21  cd connection_with_openVPN/
+   22  mkdir certificates
+   23  cd certificates/
+   24  wget http://ca-nord.fachpraktikum-1599.de/files/generate.sh
+   25  ls -la
+   26  chmod u+x generate.sh
+   27  view generate.sh 
+   28  dpkg -l | grep openssl
+   29  mkdir CSR
+   30  ./generate.sh FileNord "Mayer Brot" CSR/
+   31  sudo ./generate.sh FileNord "Mayer Brot" CSR/
+   32  cd CSR/
+   33  ls -la
+   34  cd ..
+   35  tar cvzf CSR.tar.gz CSR/
+   36  sudo tar cvzf CSR.tar.gz CSR/
+   37  man tar
+   38  man zip
+   39  zip -e ttt.zip CSR.tar.gz 
+   40  mv CSR.tar.gz CSR_orig_after_create.tar.gz
+   41  ls -la
+   42  tar xvzf CSR.tar.gz 
+   43  sudo rm CSR/*
+   44  sudo tar xvzf CSR.tar.gz 
+   45  ls -la
+   46  cd CSR/
+   47  ls -la 
+   48  man openssl 
+   49  dpkg -l | grep openvpn
+   50  sudo apt-get install openvpn
+   51  ls -l
+   52  wget http://ca-nord.fachpraktikum-1599.de/files/ca.cert.pem
+   53  ls -la
+   54  openssl req -in ca.cert.pem 
+   55  openssl req -in ca.cert.pem -noout
+   56  openssl req -in ca.cert.pem -noout -text
+   57  openssl req -in ca.cert.pem -noout -text -verify
+   58  openssl req -in gen.csr.pem -noout -text -verify
+   59  ls
+   60  openssl req -in ca-chain.cert.pem -noout -text -verify
+   61  cd ..
+   62  cd /etc/openvpn/
+   63  ls
+   64  ls -l
+   65  view update-resolv-conf 
+   66  mkdir mayerbrot/
+   67  sudo mkdir mayerbrot/
+   68  vi client.conf
+   69  sudo vi client.conf
+   70  cd mayerbrot/
+   71  mv ~/connection_with_openVPN/certificates/CSR/ca.cert.pem ca.csr
+   72  sudo mv ~/connection_with_openVPN/certificates/CSR/ca.cert.pem ca.csr
+   73  sudo mv ~/connection_with_openVPN/certificates/CSR/gen.key_nocrypt.pem client.key
+   74  sudo mv ~/connection_with_openVPN/certificates/CSR/ca-chain.cert.pem client.csr
+   75  ls -l
+   76  cat ../client.conf 
+   77  mv ca.csr ca.crt
+   78  sudo mv ca.csr ca.crt
+   79  sudo mv client.csr client.crt
+   80  ls -l
+   81  chmod 
+   82  ls -l
+   83  chmod 550 ca.crt 
+   84  chmod 550 client.crt 
+   85  ls -l
+   86  sudo service openvpn start client 
+   87  sudo openvpn status
+   88  sudo service openvpn status
+   89  ifconfig 
+
