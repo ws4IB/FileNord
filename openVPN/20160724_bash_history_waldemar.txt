@@ -87,4 +87,13 @@
    87  sudo openvpn status
    88  sudo service openvpn status
    89  ifconfig 
+...
+  109  openssl x509 -noout -modulus -in client.crt | openssl md5
+  110  mv client.crt /etc/openvpn/mayerbrot/
+  111  sudo mv client.crt /etc/openvpn/mayerbrot/
+  112  ls -la
+  113  openssl rsa -noout -modulus -in /etc/openvpn/mayerbrot/client.key | openssl md5
+  114  cd /etc/openvpn/
+  115  sudo openvpn --config client.conf
+  116  cat client.conf
 
