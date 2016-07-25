@@ -1,0 +1,5 @@
+---
+
+- hosts: file_server_nord
+  roles: 
+    - k1599_samba_nord
